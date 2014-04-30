@@ -32,5 +32,10 @@ app.get('/bootstrap.css', function(req, res) {
   res.sendfile(__dirname + '/assets/css/bootstrap.css');
 });
 
+// loader.gif
+app.get('/loader.gif', function(req, res) {
+  res.sendfile(__dirname + '/assets/imgs/spinnerLarge.gif');
+});
+
 app.listen(3100);
 console.log('app listening on port 3100');

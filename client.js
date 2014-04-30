@@ -5,7 +5,7 @@ var code = document.querySelector('div#results');
 var search_func = function() {
   var xhr = new XMLHttpRequest;
   var _search = document.querySelector('[type=search]').value;
-  code.innerHTML = '<div class="alert alert-info"><img src="loader.gif" width=75 style="padding:10px;">Retrieving agent status ...</div>';
+  code.innerHTML = '<div class="alert"><img src="loader.gif" width=75 style="padding:10px;">OCRizing ...</div>';
   xhr.open('POST', 'ocrize');
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
