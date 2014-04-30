@@ -1,0 +1,21 @@
+doctype
+html
+  head
+    title OCRize
+    link(rel='stylesheet', href='bootstrap.css', type='text/css')
+
+    style.
+      body {
+        font: 14px "Helvetica Neue", Helvetica;
+        padding: 50px;
+      }
+  body
+    h1(class='page-header') OCRize
+    div(class='container')
+        div(class='row')
+            div(class='col-md-6')
+                p Enter image URL name and then click the OCR button
+                input(id='search_field', type='search', class='form-inline form-group form-control')
+                button(class='btn btn-primary') OCR
+            div(id='results' class='col-md-6')
+            script(src='client.js')

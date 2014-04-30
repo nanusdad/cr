@@ -3,6 +3,12 @@ var app = express();
 var jsonBody = require("body/json");
 var ocr = require('./ocr.js');
 
+// Index page
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
+// OCRize path
 app.post('/ocrize', function(req, res) {
 	function send(err, body) {
 		ocr.run(body.url, function(text) {
