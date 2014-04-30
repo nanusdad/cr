@@ -12,7 +12,7 @@ ocr.run = function(imgurl, lang, psm, callback) {
 	if (!psm)  { psm = 6 };
 	console.log(imgurl + ' :: ' + lang + ' :: ' + psm);
 
-	var imgName = test_img.split('/').pop()
+	var imgName = test_img.split('/').pop();
 
 		function ncrHandler(lang, psm) {
 
@@ -26,11 +26,11 @@ ocr.run = function(imgurl, lang, psm, callback) {
 					callback(text);
 				}
 
-			}, 'eng', 6)
+			}, 'eng', 6);
 			// }, lang, psm)
 
 		}
-	request(test_img, ncrHandler(lang, psm)).pipe(fs.createWriteStream(imgName))
+	request(test_img, ncrHandler(lang, psm)).pipe(fs.createWriteStream(imgName));
 }
 
 module.exports = ocr;
