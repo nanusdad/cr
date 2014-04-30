@@ -15,42 +15,44 @@ app.get('/', function(req, res) {
 
 // file2 paths
 app.post('/file2', function(req, res) {
-		console.log(req.params.transform);
-		function send(err, body) {
-			file2[body.transform](body.url, function(text) {
-				res.send({
-					"text": text
-				});
+	console.log(req.params.transform);
+
+	function send(err, body) {
+		file2[body.transform](body.url, function(text) {
+			res.send({
+				"text": text
 			});
-		}
-		jsonBody(req, res, send);
+		});
 	}
+	jsonBody(req, res, send);
+});
 
-	// OCRize path
-	app.post('/ocrize', function(req, res) {
-		function send(err, body) {
-			ocr.run(body.url, function(text) {
-				res.send({
-					"text": text
-				});
-			})
-		}
-		jsonBody(req, res, send);
-	});
+// OCRize path
+app.post('/ocrize', function(req, res) {
+	function send(err, body) {
+		ocr.run(body.url, function(text) {
+			res.send({
+				"text": text
+			});
+		})
+	}
+	jsonBody(req, res, send);
+});
 
-	// client.js
-	app.get('/client.js', function(req, res) {
-		res.sendfile(__dirname + '/client.js');
-	});
+// client.js
+app.get('/client.js', function(req, res) {
+	res.sendfile(__dirname + '/client.js');
+});
 
-	// bootstrap.css
-	app.get('/bootstrap.css', function(req, res) {
-		res.sendfile(__dirname + '/assets/css/bootstrap.css');
-	});
+// bootstrap.css
+app.get('/bootstrap.css', function(req, res) {
+	res.sendfile(__dirname + '/assets/css/bootstrap.css');
+});
 
-	// loader.gif
-	app.get('/loader.gif', function(req, res) {
-		res.sendfile(__dirname + '/assets/imgs/spinnerLarge.gif');
-	});
+// loader.gif
+app.get('/loader.gif', function(req, res) {
+	res.sendfile(__dirname + '/assets/imgs/spinnerLarge.gif');
+});
 
-	app.listen(3100); console.log('app listening on port 3100');
+app.listen(3100);
+console.log('app listening on port 3100');
