@@ -10,7 +10,8 @@ var search_func = function() {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
     if (4 == xhr.readyState) {
-      code.innerHTML = format_html(xhr.responseText);
+      console.log(xhr.responseText);
+      code.innerHTML = xhr.responseText;
     }
   };
   var jsonData = { "url": _search };
