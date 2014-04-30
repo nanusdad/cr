@@ -16,7 +16,7 @@ var search_func = function() {
   };
   var jsonData = { "url": _search };
   console.log(jsonData);
-  xhr.send(jsonData);
+  xhr.send(JSON.stringify(jsonData));
 };
 
 if (button.addEventListener) {
