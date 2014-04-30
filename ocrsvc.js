@@ -1,5 +1,7 @@
 var express = require("express");
 var app = express();
+app.set('view engine', 'jade');
+
 var jsonBody = require("body/json");
 var ocr = require('./ocr.js');
 
