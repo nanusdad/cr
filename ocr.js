@@ -1,10 +1,16 @@
 var ocr = {};
 
-ocr.run = function(imgurl, callback) {
+ocr.run = function(imgurl, lang, psm, callback) {
 	var ncr = require('nodecr'),
 		request = require('request'),
 		fs = require('fs'),
-		test_img = imgurl;
+		test_img = imgurl,
+		lang = lang,
+		psm = psm;
+	console.log(lang + ' :: ' + psm);
+	if (!lang) { lang = 'eng'; }
+	if (!psm)  { psm = 6 };
+	console.log(lang + ' :: ' + psm);
 
 	var imgName = test_img.split('/').pop()
 
@@ -24,7 +30,7 @@ ocr.run = function(imgurl, callback) {
 			}, lang, psm)
 
 		}
-	request(test_img, ncrHandler('eng', 6)).pipe(fs.createWriteStream(imgName))
+	request(test_img, ncrHandler(lang, psm)).pipe(fs.createWriteStream(imgName))
 }
 
 module.exports = ocr;
