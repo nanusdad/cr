@@ -10,4 +10,6 @@ file2.ocrize = function(url, lang, psm, callback) {
 	});
 };
 
+file2.ocr = file2.ocrize;
+
 module.exports = file2;
