@@ -14,16 +14,9 @@ ocr.run = function(imgurl, lang, psm, callback) {
 
 		function ncrHandler() {
 			ncr.process(__dirname + '/' + imgName, function(err, text) {
-
-				if (err) {
-					if (typeof callback === "function") {
-						callback(err);
-					}
-					return console.error(err);
-				}
-
+				
 				if (typeof callback === "function") {
-					callback(text);
+					callback(text, err);
 				}
 
 			}, lang, psm)
