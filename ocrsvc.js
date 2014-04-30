@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 app.set('view engine', 'jade');
 app.set('views', __dirname);
+app.use(express.static(__dirname + '/assets'));
 
 var jsonBody = require("body/json");
 var ocr = require('./ocr.js');
@@ -24,6 +25,11 @@ app.post('/ocrize', function(req, res) {
 // client.js
 app.get('/client.js', function(req, res) {
   res.sendfile(__dirname + '/client.js');
+});
+
+// bootstrap.css
+app.get('/bootstrap.css', function(req, res) {
+  res.sendfile(__dirname + '/assets/css/bootstrap.css');
 });
 
 app.listen(3100);
