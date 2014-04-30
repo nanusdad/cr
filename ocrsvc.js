@@ -18,6 +18,7 @@ app.post('/file2', function(req, res) {
 	console.log(req.params.transform);
 
 	function send(err, body) {
+		console.log(JSON.stringify(body));
 		file2[body.transform](body.url, body.lang, body.psm, function(text) {
 			res.send({
 				"text": text
