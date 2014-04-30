@@ -10,7 +10,7 @@ ocr.run = function(imgurl, lang, psm, callback) {
 	console.log(lang + ' :: ' + psm);
 	if (!lang) { lang = 'eng'; }
 	if (!psm)  { psm = 6 };
-	console.log(lang + ' :: ' + psm);
+	console.log(imgurl + ' :: ' + lang + ' :: ' + psm);
 
 	var imgName = test_img.split('/').pop()
 
