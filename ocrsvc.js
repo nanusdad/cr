@@ -20,15 +20,15 @@ app.post('/file2', function(req, res) {
 	function send(err, body) {
 		console.log(JSON.stringify(body));
 		file2[body.transform](body.url, body.lang, body.psm, function(text, err) {
-			if (text) {
-				res.send({
-					"success": true,
-					"text": text
-				});
-			} else if (err) {
+			if (err) {
 				res.send({
 					"success": false,
 					"error": err
+				});
+			} else if (text) {
+				res.send({
+					"success": true,
+					"text": text
 				});
 			}
 		});
