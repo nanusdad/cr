@@ -24,7 +24,7 @@ ocr.run = function(imgurl, callback) {
 			}, lang, psm)
 
 		}
-	request(test_img, ncrHandler(lang, psm)).pipe(fs.createWriteStream(imgName))
+	request(test_img, ncrHandler('eng', 6)).pipe(fs.createWriteStream(imgName))
 }
 
 module.exports = ocr;
