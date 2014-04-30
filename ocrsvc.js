@@ -14,11 +14,16 @@ app.get('/', function(req, res) {
 });
 
 // file2 paths
-app.post('/file2', function(req, res) {
+app.post('/file2/:transform?', function(req, res) {
 
 	function send(err, body) {
 		if (body) {
-			file2[body.transform](body.url, body.lang, body.psm, function(text, err) {
+			if (req.params.transform) {
+				transform = req.params.transform;
+			} else {
+				transform = body.transform;
+			}
+			file2[transform](body.url, body.lang, body.psm, function(text, err) {
 				if (err) {
 					res.send({
 						"success": false,
@@ -34,7 +39,7 @@ app.post('/file2', function(req, res) {
 		} else {
 			res.send({
 				"success": false,
-				"text": 'POST data required' 
+				"text": 'POST data required'
 			});
 
 		}
