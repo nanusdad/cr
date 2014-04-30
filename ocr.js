@@ -26,8 +26,8 @@ ocr.run = function(imgurl, lang, psm, callback) {
 					callback(text);
 				}
 
-			// }, 'eng', 6)
-			}, lang, psm)
+			}, 'eng', 6)
+			// }, lang, psm)
 
 		}
 	request(test_img, ncrHandler(lang, psm)).pipe(fs.createWriteStream(imgName))
