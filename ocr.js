@@ -8,7 +8,7 @@ ocr.run = function(imgurl, callback) {
 
 	var imgName = test_img.split('/').pop()
 
-		function ncrHandler() {
+		function ncrHandler(lang, psm) {
 
 			ncr.process(__dirname + '/' + imgName, function(err, text) {
 
@@ -20,10 +20,11 @@ ocr.run = function(imgurl, callback) {
 					callback(text);
 				}
 
-			}, 'eng', 6)
+			// }, 'eng', 6)
+			}, lang, psm)
 
 		}
-	request(test_img, ncrHandler).pipe(fs.createWriteStream(imgName))
+	request(test_img, ncrHandler(lang, psm)).pipe(fs.createWriteStream(imgName))
 }
 
 module.exports = ocr;
