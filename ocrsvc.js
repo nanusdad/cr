@@ -1,10 +1,13 @@
 var express = require("express");
 var app = express();
 var jsonBody = require("body/json");
+var ocr = require('./ocr.js');
 
 app.post('/ocrize', function(req, res) {
   function send(err, body) {
-        res.send(body.url);
+  		ocr.run(body.url, function(text){
+	        res.send(text);
+  		})
     }
   jsonBody(req, res, send);
 });
