@@ -4,7 +4,7 @@ var code = document.querySelector('div#results');
 
 var search_func = function() {
   var xhr = new XMLHttpRequest;
-  var _search = document.querySelector('[type=search]');
+  var _search = document.querySelector('[type=search]').value;
   code.innerHTML = '<div class="alert alert-info"><img src="loader.gif" width=75 style="padding:10px;">Retrieving agent status ...</div>';
   xhr.open('POST', 'ocrize');
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -15,7 +15,7 @@ var search_func = function() {
   };
   var jsonData = { "url": _search };
   console.log(jsonData);
-  xhr.send(JSON.stringify(jsonData));
+  xhr.send(jsonData);
 };
 
 if (button.addEventListener) {
