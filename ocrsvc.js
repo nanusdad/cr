@@ -15,23 +15,30 @@ app.get('/', function(req, res) {
 
 // file2 paths
 app.post('/file2', function(req, res) {
-	console.log(req.params.transform);
 
 	function send(err, body) {
-		console.log(JSON.stringify(body));
-		file2[body.transform](body.url, body.lang, body.psm, function(text, err) {
-			if (err) {
-				res.send({
-					"success": false,
-					"error": err
-				});
-			} else if (text) {
-				res.send({
-					"success": true,
-					"text": text
-				});
-			}
-		});
+		if (body) {
+			file2[body.transform](body.url, body.lang, body.psm, function(text, err) {
+				if (err) {
+					res.send({
+						"success": false,
+						"error": err
+					});
+				} else if (text) {
+					res.send({
+						"success": true,
+						"text": text
+					});
+				}
+			});
+		} else {
+			res.send({
+				"success": false,
+				"text": 'POST data required' 
+			});
+
+		}
+
 	}
 	jsonBody(req, res, send);
 });
