@@ -14,7 +14,7 @@ var search_func = function() {
       code.innerHTML = xhr.responseText;
     }
   };
-  var jsonData = { "url": _search };
+  var jsonData = { "url": _search, "lang": "eng", "psm": 4 };
   console.log(jsonData);
   xhr.send(JSON.stringify(jsonData));
 };
