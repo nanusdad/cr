@@ -10,12 +10,12 @@ var search_func = function() {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
     if (4 == xhr.readyState) {
-      console.log(xhr.responseText);
+      //console.log(xhr.responseText);
       code.innerHTML = xhr.responseText;
     }
   };
   var jsonData = { "url": _search, "lang": "eng", "psm": 6 };
-  console.log(jsonData);
+  //console.log(jsonData);
   xhr.send(JSON.stringify(jsonData));
 };
 
