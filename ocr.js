@@ -14,7 +14,7 @@ ocr.run = function(imgurl, lang, psm, callback) {
 
 		function ncrHandler() {
 			ncr.process(__dirname + '/' + imgName, function(err, text) {
-				
+
 				if (typeof callback === "function") {
 					callback(text, err);
 				}
@@ -24,5 +24,8 @@ ocr.run = function(imgurl, lang, psm, callback) {
 		}
 	request(test_img, ncrHandler).pipe(fs.createWriteStream(imgName));
 }
+
+ocr.ocrize = ocr.run;
+ocr.ocr = ocr.run;
 
 module.exports = ocr;
