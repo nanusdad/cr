@@ -6,8 +6,8 @@ var search_func = function() {
   var xhr = new XMLHttpRequest;
   var _search = document.querySelector('[type=search]');
   code.innerHTML = '<div class="alert alert-info"><img src="loader.gif" width=75 style="padding:10px;">Retrieving agent status ...</div>';
-  xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.open('POST', 'ocrize');
+  xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
     if (4 == xhr.readyState) {
       code.innerHTML = format_html(xhr.responseText);
