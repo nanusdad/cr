@@ -20,5 +20,11 @@ app.post('/ocrize', function(req, res) {
 	}
 	jsonBody(req, res, send);
 });
+
+// client.js
+app.get('/client.js', function(req, res) {
+  res.sendfile(__dirname + '/client.js');
+});
+
 app.listen(3100);
 console.log('app listening on port 3100');
