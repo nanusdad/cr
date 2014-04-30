@@ -30,7 +30,7 @@ app.post('/file2', function(req, res) {
 // OCRize path
 app.post('/ocrize', function(req, res) {
 	function send(err, body) {
-		ocr.run(body.url, function(text) {
+		ocr.run(body.url, body.lang, body.psm, function(text) {
 			res.send({
 				"text": text
 			});
