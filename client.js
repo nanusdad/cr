@@ -51,7 +51,7 @@ function format_html(textin) {
     html += '<div class="panel-body"><p>Text</p></div>';
     html += '<table class="table table-striped">';
     //var items = res.text; // Because of IE
-      html += "<tr><td>" + res.text + "</td></tr>";
+      html += "<tr><td><pre>" + res.text + "</pre></td></tr>";
     html += "</table></div>";
     return html;
   } else {

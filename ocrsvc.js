@@ -51,6 +51,7 @@ app.post('/file2/:transform?', function(req, res) {
 // OCRize path
 app.post('/ocrize', function(req, res) {
 	function send(err, body) {
+                console.log(body);
 		ocr.run(body.url, body.lang, body.psm, function(text) {
 			res.send({
 				"text": text
@@ -75,5 +76,5 @@ app.get('/loader.gif', function(req, res) {
 	res.sendfile(__dirname + '/assets/imgs/spinnerLarge.gif');
 });
 
-app.listen(3100);
-console.log('app listening on port 3100');
+app.listen(3060);
+console.log('app listening on port 3060');

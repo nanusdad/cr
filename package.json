@@ -1,0 +1,28 @@
+{
+  "name": "node_svc_ocr_img",
+  "version": "0.0.1",
+  "description": "Node service to OCR images",
+  "main": "ocrsvc.js",
+  "dependencies": {
+    "body": "~4.4.2",
+    "express": "~4.1.1",
+    "jade": "~1.3.1",
+    "nodecr": "~0.0.5",
+    "request": "~2.34.0",
+    "send-data": "~3.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanusdad/cr.git"
+  },
+  "author": "Arun Zechariah (arun@zechariah.net)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nanusdad/cr/issues"
+  },
+  "homepage": "https://github.com/nanusdad/cr"
+}
